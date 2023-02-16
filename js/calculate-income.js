@@ -43,8 +43,16 @@ document.getElementById('btn-calculate').addEventListener('click', function(){
 document.getElementById('btn-save').addEventListener('click', function(){
     const balanceAmount = spanFieldtoNumberById ('balance');
     const savePercentage = inputFieldToNumberById ('input-percantage');
+    if(isNaN(balanceAmount) && isNaN(savePercentage)){
+        alert('Something wrong!');
+        return;
+    }
+    else if(savePercentage === 50){
+        alert('Greetings...!');
+    }
     const savingsDivide = balanceAmount * savePercentage;
     const savingsAmount = savingsDivide / 100;
+
     setAValueOnField ('total-saving', savingsAmount);
     const remainingBalance = balanceAmount - savingsAmount;
     setAValueOnField('remaining-balance', remainingBalance);
